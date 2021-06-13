@@ -78,7 +78,7 @@ class LogInPage extends GetWidget<AuthController> {
                   SizedBox(width: 190),
                   TextButton(
                     onPressed: () {
-                      Get.to(SignUpPage());
+                      Get.to(() => SignUpPage());
                     },
                     child: Text(
                       "Sign Up Instead!",

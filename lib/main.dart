@@ -7,7 +7,6 @@ import 'package:flutter_firebase_login/views/log_in.dart';
 import 'package:flutter_firebase_login/views/sign_up.dart';
 import 'package:get/get.dart';
 
-
 Future<void> main() async {
   WidgetsFlutterBinding.ensureInitialized();
   await Firebase.initializeApp();
@@ -36,15 +35,3 @@ class MyApp extends StatelessWidget {
     );
   }
 }
-
-// class AuthenticationWrapper extends StatelessWidget {
-//   @override
-//   Widget build(BuildContext context) {
-//     final firebaseUser = context.watch<User>();
-
-//     if (firebaseUser != null) {
-//       return HomePage();
-//     }
-//     return LogInPage();
-//   }
-// }
