@@ -1,70 +1,75 @@
+import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_firebase_login/controller/auth_controller.dart';
-import 'package:flutter_firebase_login/controller/user_controller.dart';
-import 'package:flutter_firebase_login/services/database.dart';
 import 'package:flutter_firebase_login/widgets/drawer.dart';
+import 'package:flutter_firebase_login/widgets/nav_bar.dart';
+import 'package:font_awesome_flutter/font_awesome_flutter.dart';
 import 'package:get/get.dart';
 
 class HomePage extends GetWidget<AuthController> {
-  static String id = "home_screen";
+  static String id = "Home_screen";
   @override
   Widget build(BuildContext context) {
-    return Container(
-      width: MediaQuery.of(context).size.width,
-      height: MediaQuery.of(context).size.height,
-      decoration: BoxDecoration(
-        gradient: LinearGradient(
-          begin: Alignment.topLeft,
-          end: Alignment.bottomRight,
-          colors: [
-            Colors.pink,
-            Colors.pink,
-            Colors.pink,
-          ],
+    return Scaffold(
+      backgroundColor: Colors.white,
+      appBar: AppBar(
+        backgroundColor: Colors.transparent,
+        title: Text(
+          "Firebase Login App",
+          textAlign: TextAlign.center,
+          style: TextStyle(color: Colors.black, fontFamily: 'PT Sans'),
+        ),
+        actions: [
+          IconButton(
+            onPressed: () {
+              controller.signOut();
+            },
+            icon: FaIcon(FontAwesomeIcons.signOutAlt),
+          ),
+        ],
+      ),
+      body: Container(
+        child: SingleChildScrollView(
+          child: Column(
+            children: [
+              Container(
+                child: GridView.count(
+                  crossAxisCount: 3,
+                  mainAxisSpacing: 5,
+                  crossAxisSpacing: 5,
+                  children: [],
+                ),
+              ),
+              GestureDetector(
+                onTap: () {},
+                child: Container(
+                  height: 40,
+                  width: MediaQuery.of(context).size.width / .2,
+                  decoration: BoxDecoration(
+                    borderRadius: BorderRadius.circular(10),
+                    color: Colors.black,
+                  ),
+                  child: Text("Amazing🤩"),
+                ),
+              ),
+            ],
+          ),
         ),
       ),
-      child: Scaffold(
-        backgroundColor: Colors.transparent,
-        appBar: AppBar(
-          title: GetX<UserController>(
-            initState: (_) async {
-              Get.find<UserController>().user =
-                  await Database().getUser(Get.find<AuthController>().user!.uid);
-            },
-            builder: (_) {
-              if (_.user.name != null) {
-                return Text("Welcome " + _.user.name);
-              } else {
-                return Text("loading...");
-              }
-            },
+      bottomNavigationBar: NavBar(),
+      drawer: MyDrawer(),
+      floatingActionButton: GestureDetector(
+        onTap: () {},
+        child: Container(
+          decoration: BoxDecoration(
+            borderRadius: BorderRadius.circular(40),
+            color: Colors.black,
           ),
-          centerTitle: true,
-          backgroundColor: Colors.transparent,
-          actions: <Widget>[
-            IconButton(
-              onPressed: () {
-                controller.signOut();
-              },
-              icon: Icon(
-                Icons.logout_outlined,
-                color: Colors.white,
-              ),
-            ),
-            IconButton(
-              icon: Icon(Icons.edit),
-              onPressed: () {
-                if (Get.isDarkMode) {
-                  Get.changeTheme(ThemeData.light());
-                } else {
-                  Get.changeTheme(ThemeData.dark());
-                }
-              },
-            )
-          ],
+          child: Icon(
+            Icons.favorite_border,
+            color: Colors.pink,
+          ),
         ),
-        body: SingleChildScrollView(),
-        drawer: MyDrawer(),
       ),
     );
   }

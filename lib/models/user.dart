@@ -1,17 +1,14 @@
 import 'package:cloud_firestore/cloud_firestore.dart';
-
 class UserModel {
-  late String id;
+  late String uid;
   late String name;
   late String email;
-  late String password;
 
-  UserModel({this.id, this.name, this.email, this.password});
+  UserModel({required this.uid, required this.name, required this.email, required String password});
 
-  UserModel.fromDocumentSnapshot({DocumentSnapshot? docsSnapshot}) {
-    id = docsSnapshot!.documentsID;
-    name = docsSnapshot["name"];
-    email = docsSnapshot["email"];
-    password = docsSnapshot["password"];
+  UserModel.fromDocumentSnapshot({DocumentSnapshot? documentSnapshot}) {
+    uid = documentSnapshot as String;
+    name = documentSnapshot!["name"];
+    email = documentSnapshot["email"];
   }
 }

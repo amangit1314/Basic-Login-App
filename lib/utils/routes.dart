@@ -5,7 +5,8 @@ import 'package:flutter_firebase_login/views/home_page.dart';
 import 'package:flutter_firebase_login/views/log_in.dart';
 import 'package:get/get.dart';
 
-class Root extends GetWidget<AuthController> {
+class Routes extends GetWidget<AuthController> {
+  static String id = "routes";
   @override
   Widget build(BuildContext context) {
     return GetX(
@@ -13,10 +14,10 @@ class Root extends GetWidget<AuthController> {
         Get.put<UserController>(UserController());
       },
       builder: (_) {
-        if (Get.find<AuthController>().user?.uid != null) {
-          return HomePage();
-        } else {
+        if (Get.find<AuthController>().user == null) {
           return LogInPage();
+        } else {
+          return HomePage();
         }
       },
     );
