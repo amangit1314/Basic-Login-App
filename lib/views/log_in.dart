@@ -1,4 +1,3 @@
-import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_firebase_login/controller/auth_controller.dart';
 import 'package:flutter_firebase_login/views/sign_up.dart';
@@ -123,7 +122,9 @@ class LogInPage extends GetWidget<AuthController> {
                           ),
                           onPressed: () {
                             controller.login(
-                                emailController.text, passwordController.text);
+                              emailController.text,
+                              passwordController.text,
+                            );
                           },
                         ),
                       ),

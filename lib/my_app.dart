@@ -15,12 +15,6 @@ class MyApp extends StatelessWidget {
       title: 'Flutter Fire Login',
       theme: MyTheme.lightTheme(context),
       darkTheme: MyTheme.darkTheme(context),
-      initialRoute: GetStartedScreen.id,
-      routes: {
-        HomePage.id: (context) => HomePage(),
-        Routes.id: (context) => Routes(),
-        GetStartedScreen.id: (context) => GetStartedScreen(),
-      },
     );
   }
 }

@@ -29,18 +29,6 @@ class GetStartedScreen extends StatelessWidget {
               width: MediaQuery.of(context).size.width / 2,
               height: 45,
               decoration: BoxDecoration(
-                // boxShadow: [
-                //   //background color of box
-                //   BoxShadow(
-                //     color: Colors.grey,
-                //     blurRadius: 18.0, // soften the shadow
-                //     spreadRadius: 2.0, //extend the shadow
-                //     offset: Offset(
-                //       5.0, // Move to right 10  horizontally
-                //       5.0, // Move to bottom 10 Vertically
-                //     ),
-                //  ),
-                //],
                 borderRadius: BorderRadius.circular(36.0),
                 border: Border.all(color: Colors.white),
                 color: Colors.black,

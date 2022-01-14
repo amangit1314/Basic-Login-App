@@ -5,12 +5,21 @@ import 'package:flutter_firebase_login/views/log_in.dart';
 import 'package:font_awesome_flutter/font_awesome_flutter.dart';
 import 'package:get/get.dart';
 
-class SignUpPage extends GetWidget<AuthController> {
+class SignUpPage extends StatefulWidget {
   static String id = "sign_up_screen";
 
+  @override
+  State<SignUpPage> createState() => _SignUpPageState();
+}
+
+class _SignUpPageState extends State<SignUpPage> {
+  bool hidePassword = true;
   final TextEditingController nameController = TextEditingController();
+
   final TextEditingController emailController = TextEditingController();
+
   final TextEditingController passwordController = TextEditingController();
+
   final TextEditingController confirmpasswordController =
       TextEditingController();
 
@@ -90,9 +99,7 @@ class SignUpPage extends GetWidget<AuthController> {
                           contentPadding: EdgeInsets.symmetric(
                             horizontal: 0.4,
                           ),
-                          prefixIcon: Icon(
-                            (CupertinoIcons.mail),
-                          ),
+                          prefixIcon: Icon(CupertinoIcons.mail),
                         ),
                       ),
                       SizedBox(height: 14),
@@ -110,7 +117,16 @@ class SignUpPage extends GetWidget<AuthController> {
                             horizontal: 0.4,
                           ),
                           prefixIcon: const FaIcon(FontAwesomeIcons.key),
-                          suffixIcon: const Icon(Icons.remove_red_eye_outlined),
+                          suffixIcon: IconButton(
+                            icon: hidePassword
+                                ? Icon(Icons.visibility_off)
+                                : Icon(Icons.visibility),
+                            onPressed: () {
+                              setState(() {
+                                hidePassword = !hidePassword;
+                              });
+                            },
+                          ),
                         ),
                       ),
                       SizedBox(height: 14),
@@ -118,17 +134,25 @@ class SignUpPage extends GetWidget<AuthController> {
                         obscureText: true,
                         controller: confirmpasswordController,
                         decoration: InputDecoration(
-                            hintText: "Confirm Password ",
-                            hintStyle: TextStyle(fontSize: 13),
-                            border: OutlineInputBorder(
-                              borderRadius:
-                                  BorderRadius.all(const Radius.circular(12)),
-                            ),
-                            contentPadding: EdgeInsets.symmetric(
-                              horizontal: 0.4,
-                            ),
-                            prefixIcon: Icon(Icons.verified_outlined),
-                            suffixIcon: Icon(Icons.remove_red_eye_outlined)),
+                          hintText: "Confirm Password ",
+                          hintStyle: TextStyle(fontSize: 13),
+                          border: OutlineInputBorder(
+                            borderRadius:
+                                BorderRadius.all(const Radius.circular(12)),
+                          ),
+                          contentPadding: EdgeInsets.symmetric(horizontal: 0.4),
+                          prefixIcon: Icon(Icons.verified_outlined),
+                          suffixIcon: IconButton(
+                            icon: hidePassword
+                                ? Icon(Icons.visibility_off)
+                                : Icon(Icons.visibility),
+                            onPressed: () {
+                              setState(() {
+                                hidePassword = !hidePassword;
+                              });
+                            },
+                          ),
+                        ),
                       ),
                     ],
                   ),
@@ -170,8 +194,10 @@ class SignUpPage extends GetWidget<AuthController> {
                             ),
                           ),
                           onPressed: () {
-                            controller.createUser(
-                                emailController.text, passwordController.text);
+                            AuthController().createUser(
+                              emailController.text.trim(),
+                              passwordController.text.trim(),
+                            );
                           },
                         ),
                       ),

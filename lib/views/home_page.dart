@@ -1,4 +1,3 @@
-import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_firebase_login/controller/auth_controller.dart';
 import 'package:flutter_firebase_login/widgets/drawer.dart';
@@ -32,14 +31,14 @@ class HomePage extends GetWidget<AuthController> {
         child: SingleChildScrollView(
           child: Column(
             children: [
-              Container(
-                child: GridView.count(
-                  crossAxisCount: 3,
-                  mainAxisSpacing: 5,
-                  crossAxisSpacing: 5,
-                  children: [],
-                ),
-              ),
+              // Container(
+              //   child: GridView.count(
+              //     crossAxisCount: 3,
+              //     mainAxisSpacing: 5,
+              //     crossAxisSpacing: 5,
+              //     children: [],
+              //   ),
+              // ),
               GestureDetector(
                 onTap: () {},
                 child: Container(
