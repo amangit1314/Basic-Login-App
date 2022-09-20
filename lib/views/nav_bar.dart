@@ -1,4 +1,8 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_firebase_login/views/favourites_page.dart';
+import 'package:flutter_firebase_login/views/home_page.dart';
+import 'package:flutter_firebase_login/views/profile.dart';
+import 'package:flutter_firebase_login/views/search.dart';
 import 'package:font_awesome_flutter/font_awesome_flutter.dart';
 import 'package:salomon_bottom_bar/salomon_bottom_bar.dart';
 
@@ -9,27 +13,24 @@ class NavBar extends StatefulWidget {
 
 class _NavBarState extends State<NavBar> {
   int _currentIndex = 0;
-  // late PageController _pageController;
-  // @override
-  // void initState() {
-  //   super.initState();
-  //   _pageController = PageController();
-  // }
-  // @override
-  // void dispose() {
-  //   _pageController.dispose();
-  //   super.dispose();
-  // }
+  List pages = [HomePage(), SearchPage(), FavouritesPage(), ProfilePage()];
+
+  void onTap(int index) {
+    setState(() {
+      _currentIndex = index;
+    });
+  }
 
   @override
   Widget build(BuildContext context) {
     return Scaffold(
+      body: pages[_currentIndex],
       bottomNavigationBar: SalomonBottomBar(
-      currentIndex: _currentIndex,
-          onTap: (i) => setState(() => _currentIndex = i),
+        currentIndex: _currentIndex,
+        onTap: onTap,
         items: [
           SalomonBottomBarItem(
-            icon: FaIcon(FontAwesomeIcons.home),
+            icon: FaIcon(FontAwesomeIcons.house),
             title: Text('Home'),
             selectedColor: Colors.blueAccent,
           ),
@@ -42,7 +43,7 @@ class _NavBarState extends State<NavBar> {
               title: Text('Your Library'),
               selectedColor: Colors.pink),
           SalomonBottomBarItem(
-            icon: Icon(Icons.accessibility_new_outlined),
+            icon: FaIcon(FontAwesomeIcons.person),
             title: Text('Accessibility'),
             selectedColor: Colors.greenAccent,
           ),

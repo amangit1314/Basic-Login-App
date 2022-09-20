@@ -5,5 +5,11 @@ import 'package:flutter_firebase_login/my_app.dart';
 Future<void> main() async {
   WidgetsFlutterBinding.ensureInitialized();
   await Firebase.initializeApp();
-  runApp(MyApp());
+  runApp(
+    // DevicePreview(
+    //   enabled: !kReleaseMode,
+    //   builder: (context) =>
+    MyApp(),
+    // ),
+  );
 }

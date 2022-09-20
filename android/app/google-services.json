@@ -1,34 +1,77 @@
 {
   "project_info": {
-    "project_number": "349971799925",
-    "project_id": "sample-login-6d7e7",
-    "storage_bucket": "sample-login-6d7e7.appspot.com"
+    "project_number": "604283233775",
+    "project_id": "fooder-march-10-year-23",
+    "storage_bucket": "fooder-march-10-year-23.appspot.com"
   },
   "client": [
     {
       "client_info": {
-        "mobilesdk_app_id": "1:349971799925:android:f8a5704b5d7335ff773d3c",
+        "mobilesdk_app_id": "1:604283233775:android:1c6579360e2bba7263021a",
         "android_client_info": {
           "package_name": "com.example.flutter_firebase_login"
         }
       },
       "oauth_client": [
         {
-          "client_id": "349971799925-spluvg0jiaoepttikai26fi3qmthf3gv.apps.googleusercontent.com",
+          "client_id": "604283233775-vs36bgq63ipdn8n4bb85g3r6ae1q7j7b.apps.googleusercontent.com",
           "client_type": 3
         }
       ],
       "api_key": [
         {
-          "current_key": "AIzaSyCO8e09OJbCJbxfDQFcZ2-xF0Qj2-AAfDs"
+          "current_key": "AIzaSyAdcg7O3DXRQR9Hl13OmLJUWr2vthgE9oA"
         }
       ],
       "services": {
         "appinvite_service": {
           "other_platform_oauth_client": [
             {
-              "client_id": "349971799925-spluvg0jiaoepttikai26fi3qmthf3gv.apps.googleusercontent.com",
+              "client_id": "604283233775-vs36bgq63ipdn8n4bb85g3r6ae1q7j7b.apps.googleusercontent.com",
               "client_type": 3
+            },
+            {
+              "client_id": "604283233775-3qugphsj2qmmpitsu62j7b0hhjisjq47.apps.googleusercontent.com",
+              "client_type": 2,
+              "ios_info": {
+                "bundle_id": "com.example.fooder"
+              }
+            }
+          ]
+        }
+      }
+    },
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:604283233775:android:ee3929ed2f016d2063021a",
+        "android_client_info": {
+          "package_name": "com.example.fooder"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "604283233775-vs36bgq63ipdn8n4bb85g3r6ae1q7j7b.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyAdcg7O3DXRQR9Hl13OmLJUWr2vthgE9oA"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "604283233775-vs36bgq63ipdn8n4bb85g3r6ae1q7j7b.apps.googleusercontent.com",
+              "client_type": 3
+            },
+            {
+              "client_id": "604283233775-3qugphsj2qmmpitsu62j7b0hhjisjq47.apps.googleusercontent.com",
+              "client_type": 2,
+              "ios_info": {
+                "bundle_id": "com.example.fooder"
+              }
             }
           ]
         }
